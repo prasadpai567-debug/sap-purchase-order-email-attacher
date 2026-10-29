@@ -1,0 +1,8 @@
+# Direct third-party imports recovered from the packaged application.
+# tkinter is part of the standard Python distribution; tkinterdnd2 is not.
+
+extract-msg==0.55.0
+pdfplumber
+openpyxl
+pywin32
+tkinterdnd2
