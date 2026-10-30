@@ -1,23 +1,32 @@
-# GitHub repository metadata
+# GitHub Repository Metadata and Publication Notes
 
-## Repository description
+## Current repository status
 
-Windows Python automation tool that reads Outlook order-confirmation and PO-related `.msg` emails, identifies the purchase order, updates an Excel delivery report when applicable, and attaches the original email to the matching SAP purchase order through SAP GUI scripting.
+- Repository: sap-purchase-order-email-attacher
+- Visibility: Public
+- Default branch: main
+- Current contents: README.md, GITHUB_METADATA.md, requirements.txt, and .gitignore
+- Python source: Not currently included
+- Packaged executable: Not currently included
+- Tests, CI, screenshots, and releases: Not currently included
 
-## Suggested repository name
+The public repository is currently documentation-only. The workflow description is based on static analysis of an external packaged build and must be validated against the original source before production use.
 
-`sap-purchase-order-email-attacher`
+## Recommended GitHub description
 
-## Suggested GitHub topics
+Windows Python automation for Outlook MSG purchase-order emails, Excel delivery reporting, and SAP GUI attachment workflows.
 
-```text
+## Recommended GitHub topics
+
+Use only topics supported by the published implementation:
+
+~~~text
 python
 python-automation
 sap
 sap-gui
 sap-gui-scripting
 pywin32
-win32com
 outlook
 msg-files
 pdfplumber
@@ -27,17 +36,18 @@ procurement
 purchase-orders
 document-processing
 tkinter
-tkinterdnd2
 desktop-application
 rpa
-```
+~~~
 
-## Recommended repository structure
+Do not add topics for features that are only planned or described from an unavailable build.
 
-```text
+## Recommended structure when source publication is approved
+
+~~~text
 sap-purchase-order-email-attacher/
 ├── README.md
-├── requirements.txt
+├── requirements.txt or pyproject.toml
 ├── .gitignore
 ├── gui_app.py
 ├── main.py
@@ -48,13 +58,26 @@ sap-purchase-order-email-attacher/
 │   ├── po_extractor.py
 │   ├── report_builder.py
 │   └── sap_client.py
-├── tests/                  # Recommended; add non-confidential fixtures only
-├── Input/.gitkeep          # Runtime only
-├── Temp/.gitkeep           # Runtime only
-├── Processed/.gitkeep      # Runtime only
-├── Failed/.gitkeep         # Runtime only
-├── Logs/.gitkeep           # Runtime only
-└── Reports/.gitkeep        # Runtime only
-```
+├── tests/
+├── Input/.gitkeep
+├── Temp/.gitkeep
+├── Processed/.gitkeep
+├── Failed/.gitkeep
+├── Logs/.gitkeep
+└── Reports/.gitkeep
+~~~
 
-Do not commit real `.msg` files, PDFs, generated Excel reports, logs, SAP exports, or credentials. The supplied executable was reviewed as a packaged artifact; standalone Python source was not included in the submitted files.
+The structure above is a recommendation, not a claim about files currently present.
+
+## Publication checklist
+
+- Confirm that the original source can be published without exposing company, supplier, customer, or SAP-sensitive information.
+- Remove or sanitize MSG files, PDFs, Excel reports, logs, exports, screenshots, credentials, tokens, certificates, and private keys.
+- Add a verified run command and supported Python version.
+- Add tests for PO matching, PDF extraction, Excel report updates, duplicate handling, and filename sanitization.
+- Add mocked SAP and Outlook integration tests where practical.
+- Pin and lock dependencies after source compatibility is verified.
+- Add CI for tests, dependency review, and secret scanning.
+- Add sanitized screenshots or a synthetic demonstration.
+- Add a versioned release only after the executable has been reviewed and tested.
+- Select and add an appropriate license before inviting reuse.
