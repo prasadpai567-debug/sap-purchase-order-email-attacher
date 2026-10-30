@@ -1,20 +1,38 @@
+# Python environments and caches
 .venv/
 __pycache__/
 *.py[cod]
 *.pyd
+
+# Build and packaged artifacts
 build/
 dist/
 *.spec
 *.exe
 
+# Runtime and business data
 Input/*
+!Input/.gitkeep
 Temp/*
+!Temp/.gitkeep
 Processed/*
+!Processed/.gitkeep
 Failed/*
+!Failed/.gitkeep
 Logs/*
+!Logs/.gitkeep
 Reports/*
+!Reports/.gitkeep
+*.log
+*.tmp
 
-!.gitkeep
+# Local secrets and credentials
 .env
+.env.*
+!.env.example
 *.pem
 *.key
+
+# Operating-system files
+.DS_Store
+Thumbs.db
